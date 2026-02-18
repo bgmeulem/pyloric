@@ -7,6 +7,8 @@ import io
 import os
 import sys
 from shutil import rmtree
+from Cython.Build import cythonize
+import numpy as np
 
 from setuptools import find_packages, setup, Command
 
@@ -50,6 +52,8 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(),
+    ext_modules=cythonize("pyloric/simulator.pyx"),
+    include_dirs=[np.get_include()],
     install_requires=REQUIRED,
     include_package_data=True,
     license="AGPLv3",
