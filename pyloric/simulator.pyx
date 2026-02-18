@@ -10,6 +10,9 @@ import time
 import cython
 cimport cython
 
+# to initialize numpy C API for multiarray. otherwise, you get the error below
+# ImportError: numpy.core.multiarray failed to import (auto-generated because you didn't call 'numpy.import_array()' after cimporting numpy; use '<void>numpy._import_array' to disable if you are certain you don't need it).
+np.import_array()
 
 ctypedef double dtype
 
